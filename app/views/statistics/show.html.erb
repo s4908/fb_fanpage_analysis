@@ -1,0 +1,46 @@
+<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+<script type="text/javascript" src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+<style>
+
+  .table > tbody > tr > td {
+       vertical-align: middle;
+  }
+</style>
+<div class="container">
+  <h1>Facebook Fanpage Analysis</h1>
+  <img src="<%= @statistic.picture %>" > <span style="margin-left: 10px"> <%= @statistic.name %>
+  <br><%= link_to "<- back", statistics_path %>
+
+
+  <table class="display">
+    <thead>
+      <th>ID</th>
+      <th>Name</th>
+      <th>likes</th>
+      <th>comments</th>
+    </thead>
+
+    <tbody>
+      <% @statistic.likes.each do |s| %>
+        <tr>
+          <td> <%= s.uid %> </td>
+          <td>
+            <%= link_to "http://www.facebook.com/#{s.uid}", target: "_blank" do %>
+              <img src="<%= s.picture %>"> <%= s.name %> 
+            <% end %>
+          </td>
+          <td> <%= s.like_count %> </td>
+          <td> <%= s.comment_count %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</table>
+<script>
+$(document).ready(function() {
+    $('.display').dataTable( {
+        "order": [[ 3, "desc" ]],
+        "paging":   false
+    } );
+} );
+</script>

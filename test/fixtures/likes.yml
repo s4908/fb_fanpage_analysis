@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  statistic_id: 1
+  uid: MyString
+  name: MyString
+  type: 
+  comment: MyText
+
+two:
+  statistic_id: 1
+  uid: MyString
+  name: MyString
+  type: 
+  comment: MyText

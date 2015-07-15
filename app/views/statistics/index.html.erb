@@ -1,0 +1,33 @@
+<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.11.4/jquery-ui.js">
+<style>
+
+  .table > tbody > tr > td {
+       vertical-align: middle;
+  }
+</style>
+<div class="container">
+  <h1>Facebook Fanpage Analysis</h1>
+  <%= link_to "[new]", new_statistic_path %>
+  <br><br>
+  <table class="table">
+    <thead>
+      <th>ID</th>
+      <th>Name</th>
+      <th></th>
+    </thead>
+
+    <tbody>
+      <% @statistics.each do |s| %>
+        <tr>
+          <td> <%= s.id %> </td>
+          <td>
+            <%= link_to statistic_path(s) do %> 
+              <img src="<%= s.picture %>" > <span style="margin-left: 10px"> <%= s.name %></span>
+            <% end %>
+          </td>
+          <td> <%= s.page_id %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</table>
